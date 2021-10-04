@@ -15,8 +15,18 @@ typedef struct string_copy {
 } string_copy;
 class TextProcessing
 {
+private:
+	char* string_one;
+	char* string_two;
+
 
 public:
+	TextProcessing(char * string_one_val, char * string_two_val) {
+		string_one = string_one_val;
+		string_two = string_two_val;
+		string_length_of_parameters = strlen(string_one_val) + strlen(string_two_val);
+	}
+	uint64_t string_length_of_parameters;
 	char * c1;
 	char * c2;
 	string_copy hold_copies;
@@ -34,5 +44,7 @@ public:
 	char* print_string(char * printed_text) {
 		std::cout << "The text is:\t" << printed_text << std::endl;
 	}
-
+	uint64_t print_the_length(void) {
+		return string_length_of_parameters;
+	}
 };
